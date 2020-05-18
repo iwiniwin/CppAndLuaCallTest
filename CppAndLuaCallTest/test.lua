@@ -27,3 +27,12 @@ function call_add_sub_from_cpp(  )
     print("lua print : 10 + 6 = " .. sum)
     print("lua print : 10 - 6 = " .. diff)
 end
+
+
+
+function call_func_form_cpp_dll( ... )
+    package.path = package.path .. ";..\\?.dll;"
+    require("Debug\\CppAndLuaCallTest")
+end
+
+call_func_form_cpp_dll()
