@@ -21,3 +21,9 @@ function add_sub( a, b )
     print("lua print : a - b = " .. a - b)
     return a + b, a - b
 end
+
+function call_add_sub_from_cpp(  )
+    local sum, diff = cpp_add_sub(10, 6);
+    print("lua print : 10 + 6 = " .. sum)
+    print("lua print : 10 - 6 = " .. diff)
+end
