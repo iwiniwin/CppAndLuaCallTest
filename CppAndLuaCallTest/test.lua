@@ -29,10 +29,12 @@ function call_add_sub_from_cpp(  )
 end
 
 
-
+-- 调用CppAndLuaCallTest.dll导出的cpp_show_msg_box方法
+-- CppAndLuaCallTest.dll需要修改项目配置类型为动态库(.dll)生成
+-- 
 function call_func_form_cpp_dll( ... )
-    package.path = package.path .. ";..\\?.dll;"
-    require("Debug\\CppAndLuaCallTest")
+    local t = require("CppAndLuaCallTest")
+    t.cpp_show_msg_box()
 end
-
-call_func_form_cpp_dll()
+-- CppAndLuaCallTest.dll生成后，打开下方函数注释，lua文件被加载时将调用c++方法
+-- call_func_form_cpp_dll()
